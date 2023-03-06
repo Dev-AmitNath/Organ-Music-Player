@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="borderPane" prefHeight="700.0" prefWidth="1024.0" styleClass="linear-grad-to-bottom-right" stylesheets="@Stylesheet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicplayer.UIController">
+   <left>
+      <Pane prefHeight="700.0" prefWidth="250.0" styleClass="sidebar">
+         <children>
+            <HBox alignment="CENTER_LEFT" layoutX="17.0" layoutY="125.0" prefHeight="50.0" prefWidth="216.0" styleClass="create-music-btn">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="0.9803921580314636" blue="0.9803921580314636" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-add-song-96.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="106.0" text="Create Music" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="addSong" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="69.0" ripplerFill="WHITE" style="-fx-background-color: #518cfe; -fx-background-radius: 0px 5px 5px 0px;" text="+" textFill="WHITE" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox fx:id="songsButton" alignment="CENTER_LEFT" fillHeight="false" layoutX="25.0" layoutY="241.0" onMousePressed="#openSongsTable" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-btns">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-musical-notes-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="All Songs" textFill="#727070">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox fx:id="artistsButton" alignment="CENTER_LEFT" fillHeight="false" layoutX="25.0" layoutY="293.0" onMousePressed="#openArtistsTable" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-btns">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-microphone-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Artists" textFill="#727070">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox onMouseClicked="#openAlbumsTable" alignment="CENTER_LEFT" fillHeight="false" layoutX="25.0" layoutY="344.0" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-btns">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-music-record-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Albums" textFill="#727070">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox onMouseClicked="#handleDashboardClick" alignment="CENTER_LEFT" fillHeight="false" layoutX="25.0" layoutY="189.0" prefHeight="40.0" prefWidth="200.0" styleClass="sidebar-btns">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/icons8-headphones-96.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Dashboard" textFill="#727070">
+                     <font>
+                        <Font name="Calibri Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="TOP_LEFT" contentDisplay="TOP" layoutX="125.0" layoutY="23.0" prefHeight="80.0" prefWidth="100.0" style="-fx-wrap-text: true; -fx-background-radius: 5px 5px 5px 5px;" text="Organ" textAlignment="CENTER">
+               <font>
+                  <Font name="Harlow Solid Italic" size="37.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startY="0.05681825406623606">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006729475100942127">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.07941108886189797">
+                           <color>
+                              <Color red="1.0" blue="0.75" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.1413189771197846">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7012113055181695">
+                           <color>
+                              <Color red="1.0" blue="0.7423858046531677" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9333256737681775">
+                           <color>
+                              <Color red="1.0" blue="0.75" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="101.0" fitWidth="98.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../logo-2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </left>
+   <center>
+      <Pane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane fx:id="aPane" layoutY="240.0" prefHeight="460.0" prefWidth="774.0" style="-fx-alignment: center">
+               </AnchorPane>
+            <AnchorPane prefHeight="240.0" prefWidth="774.0" styleClass="pane" stylesheets="@Stylesheet.css">
+               <children>
+                  <HBox alignment="CENTER" fillHeight="false" layoutX="622.0" layoutY="14.0" prefHeight="40.0" prefWidth="138.0" styleClass="sidebar-btns">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/icons8-circled-user-male-skin-type-1-and-2-96.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Welcome!" textFill="#727070">
+                           <font>
+                              <Font name="Calibri Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <ToggleButton fx:id="playButton" layoutX="442.0" layoutY="129.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="0.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                           <Image url="@icons/play.png" />
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  <Button fx:id="previousSong" layoutX="400.0" layoutY="129.0" mnemonicParsing="false">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                           <Image preserveRatio="true" smooth="true" url="@icons/back.png" />
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="nextSong" layoutX="528.0" layoutY="129.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="2.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                           <Image preserveRatio="true" smooth="true" url="@icons/next.png" />
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label fx:id="songName" layoutX="285.0" layoutY="79.0" prefHeight="28.0" prefWidth="390.0">
+                     <font>
+                        <Font name="Harlow Solid Italic" size="27.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="257.0" layoutY="196.0" />
+                  <Label layoutX="675.0" layoutY="196.0" />
+                  <Label fx:id="currentDuration" layoutX="273.0" layoutY="171.0" prefHeight="18.0" prefWidth="34.0" text="00:00" />
+                  <Label fx:id="totalDuration" layoutX="652.0" layoutY="172.0" text="00:00" />
+                  <JFXSlider fx:id="progressBar" layoutX="308.0" layoutY="174.0" prefHeight="14.0" prefWidth="344.0" />
+                  <Slider fx:id="volumeSlider" layoutX="725.0" layoutY="54.0" orientation="VERTICAL" prefHeight="114.0" prefWidth="14.0" />
+                  <Button fx:id="stopButton" layoutX="486.0" layoutY="129.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="6.0">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" preserveRatio="true">
+                           <Image url="@icons/stop.png" />
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <ImageView fx:id="albumArt" fitHeight="200.0" fitWidth="200.0" layoutX="48.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../AlbumArt/album-cover-design.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="19.0" fitWidth="21.0" layoutX="723.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/toolbarButtonGraphics/media/Volume24.gif" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>

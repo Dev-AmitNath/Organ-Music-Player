@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="460.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.musicplayer.ArtistController">
+   <center>
+      <TableView fx:id="artistTable" prefHeight="460.0" prefWidth="774.0" stylesheets="@Stylesheet.css" BorderPane.alignment="CENTER">
+        <columns>
+            <TableColumn style="-fx-alignment: center;" text="Id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="556.7999038696289" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+      </TableView>
+   </center>
+
+</BorderPane>
