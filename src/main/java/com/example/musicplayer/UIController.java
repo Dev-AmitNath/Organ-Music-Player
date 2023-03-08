@@ -123,6 +123,8 @@ public class UIController {
                         System.out.println("Can't initialise playing this song.");
                     }
                     playButton.setSelected(true);
+                    playButton.setGraphic(new ImageView(new Image("pause.png", 16,16,false, false)));
+
                     mediaPlayer.play();
                 }
             }
@@ -138,7 +140,7 @@ public class UIController {
         Tag tag = f.getTag();
         byte[] bytes = tag.getFirstArtwork().getBinaryData();
         ByteArrayInputStream in = new ByteArrayInputStream(bytes);
-        albumArt.setImage(new Image(in, 200, 200, true, true));
+        albumArt.setImage(new Image(in, 200, 200, false, false));
         final Circle clip = new Circle(100, 100, 100);
         albumArt.setClip(clip);
         songName.setText(song.getName() + "-" + f.getTag().getFirst(FieldKey.ARTIST));
@@ -157,13 +159,16 @@ public class UIController {
                   int minutes = (int) newValue.toMinutes();
                   int seconds = (int) newValue.toSeconds() - minutes * 60;
                   currentDuration.setText(minutes + ":" + seconds);
-                  if(newValue.toSeconds() == mediaPlayer.getMedia().getDuration().toSeconds()){
-                      SongTableDataModel.getInstance().getSongsTable().getSelectionModel().selectNext();
-                      SongTableDataModel.getInstance().getSongsTable().getSelectionModel().selectNext();
-                  }
               }
           }
         );
+
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                SongTableDataModel.getInstance().getSongsTable().getSelectionModel().selectBelowCell();
+            }
+        });
 
         progressBar.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -195,7 +200,7 @@ public class UIController {
     public void initialize(){
         progressBar.setDisable(true);
         volumeSlider.setDisable(true);
-        albumArt.setImage(new Image("music-thumbnail.jpg", 200, 200, true, true));
+        albumArt.setImage(new Image("music-thumbnail.jpg", 200, 200, false, false));
         final Circle clip = new Circle(100, 100, 100);
         albumArt.setClip(clip);
         progressBar.setValue(0);
@@ -262,16 +267,12 @@ public class UIController {
             public void handle(ActionEvent actionEvent) {
                 if(mediaPlayer != null){
                     if(playButton.isSelected()){
-                        ImageView img = new ImageView(new Image("play.png", 25,25,true, true));
-                        img.setFitHeight(16);
-                        img.setFitWidth(16);
+                        ImageView img = new ImageView(new Image("pause.png", 16,16,false, false));
                         playButton.setGraphic(img);
                         mediaPlayer.play();
                     }
                     if (!playButton.isSelected()) {
-                        ImageView img = new ImageView(new Image("pause.png", 25,25,true, true));
-                        img.setFitHeight(16);
-                        img.setFitWidth(16);
+                        ImageView img = new ImageView(new Image("play.png", 16,16,false, false));
                         playButton.setGraphic(img);
                         mediaPlayer.pause();
                     }
